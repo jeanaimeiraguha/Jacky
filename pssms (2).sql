@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2025 at 12:57 PM
+-- Generation Time: May 23, 2025 at 02:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,6 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(255) NOT NULL,
+  `username` varchar(222) NOT NULL,
+  `password` varchar(223) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `car`
 --
 
@@ -33,6 +45,14 @@ CREATE TABLE `car` (
   `DriveName` varchar(100) NOT NULL,
   `PhoneNumber` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `car`
+--
+
+INSERT INTO `car` (`id`, `plateNumber`, `DriveName`, `PhoneNumber`) VALUES
+(4, '11', 'jj', '00980897778798888'),
+(5, '555', 'uiuiuiui', 'ooioi');
 
 -- --------------------------------------------------------
 
@@ -91,11 +111,18 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `AmountPaid`, `PaymentDate`) VALUES
-(233, 7777.00, '2025-05-29');
+(11, 2000.00, '2025-05-26'),
+(13, 266.00, '2025-05-19');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `car`
@@ -126,10 +153,16 @@ ALTER TABLE `payment`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `parkingrecord`
@@ -147,7 +180,7 @@ ALTER TABLE `parkingslot`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=890;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
