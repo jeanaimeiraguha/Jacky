@@ -191,6 +191,41 @@ app.delete('/api/payments/:id', (req, res) => {
     res.json('Payment deleted');
   });
 });
+/////login and register 
+
+
+app.post('/login', (req, res) => {
+    const sql = "SELECT * FROM admin WHERE name = ? AND password = ?";
+    const { name, password } = req.body;
+
+    db.query(sql, [name, password], (err, result) => {
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).json({ message: "Database error" });
+        }
+
+        if (result.length === 0) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+
+        return res.status(200).json(result);
+    });
+});
+
+app.post('/register', (req, res) => {
+    const sql = "INSERT INTO admin (name,password)  VALUES(?,?)";
+    const { name, password } = req.body;
+
+    db.query(sql, [name, password], (err, result) => {
+        if (err) {
+            return res.status(500).json({ message: "Database error" });
+        }
+
+        return res.status(200).json(result);
+    });
+});
+
+
 
 // ------------------- SERVER -------------------
 app.listen(5000, () => {
