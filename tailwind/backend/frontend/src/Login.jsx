@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Iraguha IMS";
+    document.title = "";
     window.history.pushState(null, document.title, window.location.href);
     const onPopState = () => {
       window.history.pushState(null, document.title, window.location.href);
